@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formation — Toky Andrianjafy</title>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <style>
+    .edu-logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      height: 60px;
+    }
+    .edu-logo img {
+      height: 100%;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      object-position: left center;
+      filter: grayscale(1);
+      opacity: .45;
+      transition: filter .35s, opacity .35s;
+    }
+    /* Saint-Marie : logo sur fond noir — on l'inverse pour fond clair */
+    .edu-logo img.logo-dark-bg {
+      filter: grayscale(1) invert(1);
+      opacity: .45;
+    }
+    .edu-entry:hover .edu-logo img        { filter: grayscale(0); opacity: 1; }
+    .edu-entry:hover .edu-logo img.logo-dark-bg { filter: invert(1); opacity: .9; }
+
+    .edu-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 5px 12px 5px 8px;
+      border: 1px solid var(--or);
+      background: rgba(154,124,74,0.07);
+      font-family: 'Jost', sans-serif;
+      font-size: .52rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--or);
+    }
+    .edu-badge svg { flex-shrink: 0; opacity: .85; }
+  </style>
+</head>
+<body data-page="education">
+
+  <div id="cursor"></div>
+  <div id="cursor-circle"></div>
+  <div id="curtain"><div id="curtain-line"></div></div>
+
+  <nav>
+    <ul class="nav-left">
+      <li><a href="../index.html" data-page="home">Accueil</a></li>
+      <li><a href="../pages/about.html" data-page="about">Profil</a></li>
+    </ul>
+    <div class="nav-logo">
+      <div class="nav-logo-main">Toky Andrianjafy</div>
+      <div class="nav-logo-sub">Full Stack Developer</div>
+    </div>
+    <ul class="nav-right">
+      <li><a href="../pages/experience.html" data-page="experience">Expérience</a></li>
+      <li><a href="../pages/education.html" data-page="education">Formation</a></li>
+      <li><a href="../pages/contact.html" data-page="contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page active" id="education">
+    <div class="pg-wrap">
+
+      <h2 class="section-h2 reveal">Parcours<br><em>académique</em></h2>
+
+      <div class="edu-list">
+
+        <!-- MBA — MyDigitalSchool -->
+        <div class="edu-entry reveal">
+          <div class="edu-year">Sept. 2025<br>→ En cours</div>
+          <div>
+            <div class="edu-logo">
+              <img src="../images/mds.png" alt="MyDigitalSchool" />
+            </div>
+            <div class="edu-deg">MBA Développeur Full Stack</div>
+            <div class="edu-school">MyDigitalSchool — Angers (49000)</div>
+          </div>
+        </div>
+
+        <!-- Licence 3 Pro — Université d'Angers -->
+        <div class="edu-entry reveal">
+          <div class="edu-year">Sept. 2024<br>→ Juil. 2025</div>
+          <div>
+            <div class="edu-logo">
+              <img src="../images/ua.svg" alt="Université d'Angers" />
+            </div>
+            <div class="edu-deg">Licence 3 Pro. Développement Web</div>
+            <div class="edu-school">Université d'Angers — Angers (49000)</div>
+            <div class="edu-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+              Diplômé
+            </div>
+          </div>
+        </div>
+
+        <!-- Licence 1 & 2 — Université d'Angers -->
+        <div class="edu-entry reveal">
+          <div class="edu-year">Sept. 2020<br>→ Juil. 2024</div>
+          <div>
+            <div class="edu-logo">
+              <img src="../images/ua.svg" alt="Université d'Angers" />
+            </div>
+            <div class="edu-deg">Licence 1 &amp; 2 Informatique</div>
+            <div class="edu-school">Université d'Angers — Angers (49000)</div>
+          </div>
+        </div>
+
+        <!-- Bac — Lycée Sainte-Marie de Cholet -->
+        <div class="edu-entry reveal">
+          <div class="edu-year">Sept. 2016<br>→ Juin 2020</div>
+          <div>
+            <div class="edu-logo">
+              <img src="../images/saintemarie.svg" alt="Lycée Sainte-Marie de Cholet" class="logo-dark-bg" />
+            </div>
+            <div class="edu-deg">Baccalauréat Général Scientifique</div>
+            <div class="edu-school">Lycée Sainte-Marie — Cholet (49300)</div>
+            <div class="edu-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+              Diplômé
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026</span>
+    <span class="ft-center">Toky Andrianjafy</span>
+    <span>Angers · France</span>
+  </footer>
+
+  <script src="../assets/main.js"></script>
+</body>
+</html>
