@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Accueil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Swup.js Library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swup@4.5.0/dist/swup.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Toky Andrianjafy</div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Accueil</a></li>
+                <li class="nav-item"><a href="pages/presentation.html" class="nav-link">Présentation</a></li>
+                <li class="nav-item"><a href="pages/parcours.html" class="nav-link">Parcours</a></li>
+                <li class="nav-item"><a href="pages/projets.html" class="nav-link">Projets</a></li>
+                <li class="nav-item"><a href="pages/contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Bonjour, je suis 
+                    <span class="highlight">Toky Andrianjafy</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Full Stack Developer passionné par les technologies web | React • Node.js • Kubernetes
+                </p>
+                <div class="cta-buttons">
+                    <a href="pages/presentation.html" class="btn btn-primary">Découvrir mon travail</a>
+                    <a href="pages/contact.html" class="btn btn-secondary">Me contacter</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <span>⚛️ React</span>
+                </div>
+                <div class="floating-card card-2">
+                    <span>🐳 Docker</span>
+                </div>
+                <div class="floating-card card-3">
+                    <span>🔗 APIs</span>
+                </div>
+                <div class="floating-card card-4">
+                    <span> Angular</span>
+                </div>
+                <div class="floating-card card-5">
+                    <span> Java</span>
+                </div>
+                <div class="floating-card card-6">
+                    <span> Symfony</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>4+</h3>
+                <p>Ans d'expérience</p>
+            </div>
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Technos maîtrisées</p>
+            </div>
+            <div class="stat-item">
+                <h3>2</h3>
+                <p>Stages formateurs</p>
+            </div>
+            <div class="stat-item">
+                <h3>MBA</h3>
+                <p>Full Stack en cours</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="featured">
+        <div class="featured-container">
+            <h2>Derniers projets</h2>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <div class="featured-image">🚀</div>
+                    <h3>Plateforme SaaS</h3>
+                    <p>Application web complète avec authentification, paiements et analytics</p>
+                    <div class="tech-stack">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>PostgreSQL</span>
+                    </div>
+                </div>
+                <div class="featured-card">
+                    <div class="featured-image">📱</div>
+                    <h3>App Mobile</h3>
+                    <p>Application e-commerce cross-platform avec panier et paiements</p>
+                    <div class="tech-stack">
+                        <span>React Native</span>
+                        <span>Firebase</span>
+                        <span>Stripe</span>
+                    </div>
+                </div>
+                <div class="featured-card">
+                    <div class="featured-image">📊</div>
+                    <h3>Dashboard</h3>
+                    <p>Interface analytique avec graphiques temps réel et exports</p>
+                    <div class="tech-stack">
+                        <span>Vue.js</span>
+                        <span>D3.js</span>
+                        <span>API REST</span>
+                    </div>
+                </div>
+            </div>
+            <a href="pages/projets.html" class="btn btn-primary">Voir tous les projets</a>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Prêt à démarrer votre projet ?</h2>
+            <p>Parlons de vos idées et transformons-les en réalité</p>
+            <a href="pages/contact.html" class="btn btn-primary btn-large">Nous connecter</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Mon Portfolio. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank">GitHub</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swup.js Scripts (AVANT main.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/swup@4.5.0/dist/swup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@swup/animate-plugin@2/dist/index.umd.js"></script>
+    <!-- Main Script (DERNIER) -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
