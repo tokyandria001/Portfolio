@@ -1,18 +1,9 @@
-/* ═══════════════════════════════════════
-   PORTFOLIO — Toky Andrianjafy
-   Navigation · Transitions · Cursor
-═══════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', function () {
 
-(function () {
-  'use strict';
+  var isSubPage = window.location.pathname.includes('/pages/');
+  var ROOT = isSubPage ? '../' : './';
 
-  // ── DETECT ROOT PATH ─────────────────────────────
-  // Works from both root (index.html) and /pages/*.html
-  const isSubPage = window.location.pathname.includes('/pages/');
-  const ROOT = isSubPage ? '../' : './';
-
-  // ── PAGE MAP ─────────────────────────────────────
-  const PAGES = {
+  var PAGES = {
     home:       ROOT + 'index.html',
     about:      ROOT + 'pages/about.html',
     experience: ROOT + 'pages/experience.html',
@@ -20,99 +11,126 @@
     contact:    ROOT + 'pages/contact.html',
   };
 
-  // Determine current page id from body data attribute
-  const currentId = document.body.dataset.page || 'home';
+  var currentId = document.body.dataset.page || 'home';
 
-  // ── CURSOR ───────────────────────────────────────
-  const cursor = document.getElementById('cursor');
-  const circle = document.getElementById('cursor-circle');
-
+  // ── CURSOR ──────────────────────────────────────
+  var cursor = document.getElementById('cursor');
+  var circle = document.getElementById('cursor-circle');
   if (cursor && circle) {
-    let mx = 0, my = 0;
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx + 'px';
-      cursor.style.top  = my + 'px';
-      setTimeout(() => {
-        circle.style.left = mx + 'px';
-        circle.style.top  = my + 'px';
+    document.addEventListener('mousemove', function (e) {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+      setTimeout(function () {
+        circle.style.left = e.clientX + 'px';
+        circle.style.top  = e.clientY + 'px';
       }, 75);
-    });
-
-    const hoverEls = document.querySelectorAll('a, button, .skill-list li, .edu-entry, .contact-line, .tl-entry');
-    hoverEls.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.width  = '14px';
-        cursor.style.height = '14px';
-        cursor.style.background = 'var(--or)';
-        circle.style.width  = '48px';
-        circle.style.height = '48px';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.width  = '8px';
-        cursor.style.height = '8px';
-        cursor.style.background = 'var(--noir)';
-        circle.style.width  = '36px';
-        circle.style.height = '36px';
-      });
     });
   }
 
-  // ── MARK ACTIVE NAV LINK ──────────────────────────
-  document.querySelectorAll('nav a[data-page]').forEach(a => {
+  // ── HAMBURGER ───────────────────────────────────
+  var btn    = document.getElementById('nav-hamburger');
+  var drawer = document.getElementById('nav-drawer');
+
+  if (btn && drawer) {
+
+    // Remplir le drawer avec les liens
+    var navLinks = [
+      { page: 'home',       label: 'Accueil' },
+      { page: 'about',      label: 'Profil' },
+      { page: 'experience', label: 'Expérience' },
+      { page: 'education',  label: 'Formation' },
+      { page: 'contact',    label: 'Contact' },
+    ];
+    navLinks.forEach(function (item) {
+      var a = document.createElement('a');
+      a.href = PAGES[item.page];
+      a.textContent = item.label;
+      if (item.page === currentId) a.className = 'active';
+      drawer.appendChild(a);
+    });
+
+    var isOpen = false;
+
+    function openDrawer() {
+      isOpen = true;
+      btn.classList.add('open');
+      drawer.style.display = 'flex';
+      // petit délai pour que le navigateur enregistre display:flex avant la transition
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          drawer.classList.add('open');
+        });
+      });
+    }
+
+    function closeDrawer() {
+      isOpen = false;
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+      setTimeout(function () {
+        if (!isOpen) drawer.style.display = 'none';
+      }, 280);
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (isOpen) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+
+    // Fermer en cliquant en dehors — avec délai pour éviter le conflit
+    document.addEventListener('click', function (e) {
+      if (isOpen && !drawer.contains(e.target) && !btn.contains(e.target)) {
+        closeDrawer();
+      }
+    });
+  }
+
+  // ── ACTIVE NAV ──────────────────────────────────
+  document.querySelectorAll('nav a[data-page]').forEach(function (a) {
     if (a.dataset.page === currentId) a.classList.add('active');
   });
 
-  // ── PAGE TRANSITIONS ──────────────────────────────
-  const curtain = document.getElementById('curtain');
+  // ── PAGE TRANSITIONS ────────────────────────────
+  var curtain = document.getElementById('curtain');
 
-  function navigateTo(targetId) {
-    if (targetId === currentId) return;
-    const url = PAGES[targetId];
-    if (!url) return;
-
-    // Close curtain from left, THEN navigate — no overlap
+  function navigateTo(url) {
+    if (!curtain) { window.location.href = url; return; }
     curtain.style.transition = 'transform .42s cubic-bezier(.77,0,.18,1)';
     curtain.style.transformOrigin = 'left';
     curtain.style.transform = 'scaleX(1)';
-
-    // Navigate only after transition is fully done
-    curtain.addEventListener('transitionend', () => {
+    curtain.addEventListener('transitionend', function () {
       window.location.href = url;
     }, { once: true });
   }
 
-  // Intercept nav clicks
-  document.querySelectorAll('a[data-page]').forEach(a => {
-    a.addEventListener('click', e => {
+  document.querySelectorAll('nav a[data-page]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
       e.preventDefault();
-      navigateTo(a.dataset.page);
+      navigateTo(a.href);
     });
   });
 
-  // ── ENTRANCE ANIMATION ────────────────────────────
-  // Curtain starts closed (scaleX:1 in CSS). Open it after first paint.
-  window.addEventListener('DOMContentLoaded', () => {
-    if (!curtain) return;
-    // Force a reflow so the browser registers the closed state before animating
+  // ── OUVERTURE CURTAIN ───────────────────────────
+  if (curtain) {
     curtain.getBoundingClientRect();
     curtain.style.transition = 'transform .52s cubic-bezier(.77,0,.18,1)';
     curtain.style.transformOrigin = 'right';
     curtain.style.transform = 'scaleX(0)';
+  }
+
+  // ── STAGGER REVEAL ──────────────────────────────
+  document.querySelectorAll('.reveal').forEach(function (el, i) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(18px)';
+    setTimeout(function () {
+      el.style.transition = 'opacity .6s ease, transform .6s ease';
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 120 + i * 80);
   });
 
-  // ── STAGGER REVEAL ────────────────────────────────
-  window.addEventListener('load', () => {
-    const reveals = document.querySelectorAll('.reveal');
-    reveals.forEach((el, i) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(18px)';
-      setTimeout(() => {
-        el.style.transition = 'opacity .6s ease, transform .6s ease';
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      }, 120 + i * 80);
-    });
-  });
-
-})();
+});

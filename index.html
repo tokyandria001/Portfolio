@@ -1,87 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Toky Andrianjafy — Full Stack Developer</title>
-  <link rel="stylesheet" href="./assets/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toky Andrianjafy — Full Stack Developer</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
 </head>
+
 <body data-page="home">
 
-  <div id="cursor"></div>
-  <div id="cursor-circle"></div>
-  <div id="curtain"><div id="curtain-line"></div></div>
-
-  <!-- NAV -->
-  <nav>
-    <ul class="nav-left">
-      <li><a href="./index.html" data-page="home">Accueil</a></li>
-      <li><a href="./pages/about.html" data-page="about">Profil</a></li>
-    </ul>
-    <div class="nav-logo">
-      <div class="nav-logo-main">Toky Andrianjafy</div>
-      <div class="nav-logo-sub">Full Stack Developer</div>
+    <div id="cursor"></div>
+    <div id="cursor-circle"></div>
+    <div id="curtain">
+        <div id="curtain-line"></div>
     </div>
-    <ul class="nav-right">
-      <li><a href="./pages/experience.html" data-page="experience">Expérience</a></li>
-      <li><a href="./pages/education.html" data-page="education">Formation</a></li>
-      <li><a href="./pages/contact.html" data-page="contact">Contact</a></li>
-    </ul>
-  </nav>
 
-  <!-- HERO -->
-  <main class="page active" id="home">
-    <div class="home-hero">
-
-      <!-- LEFT — dark editorial panel -->
-      <div class="hero-editorial">
-        <div class="hero-overline reveal">Portfolio</div>
-        <h1 class="hero-name reveal">
-          Toky<br>
-          <span class="italic">Andrian</span>jafy
-        </h1>
-        <div class="hero-rule reveal"></div>
-        <div class="hero-tagline reveal">Full Stack Developer</div>
-
-        <div class="hero-issue">
-          <div class="issue-num">24</div>
-          <div class="issue-label">Vol. I</div>
+    <!-- NAV -->
+    <nav>
+        <ul class="nav-left">
+            <li><a href="./index.html" data-page="home">Accueil</a></li>
+            <li><a href="./pages/about.html" data-page="about">Profil</a></li>
+        </ul>
+        <div class="nav-logo">
+            <div class="nav-logo-main">Toky Andrianjafy</div>
+            <div class="nav-logo-sub">Full Stack Developer</div>
         </div>
-      </div>
+        <ul class="nav-right">
+            <li><a href="./pages/experience.html" data-page="experience">Expérience</a></li>
+            <li><a href="./pages/education.html" data-page="education">Formation</a></li>
+            <li><a href="./pages/contact.html" data-page="contact">Contact</a></li>
+        </ul>
 
-      <!-- RIGHT — content -->
-      <div class="hero-content">
-        <p class="hero-intro reveal">
-          Développeur passionné par les technologies web modernes, diplômé en Développement d'Applications Web et actuellement en <em>MBA Full Stack</em> à MyDigitalSchool.
-        </p>
+        <!-- HAMBURGER -->
+        <button id="nav-hamburger" class="nav-hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-        <div class="hero-meta reveal">
-          <div class="meta-row">
-            <span class="meta-key">Localisation</span>
-            <span class="meta-val">Angers, France</span>
-          </div>
-          <div class="meta-row">
-            <span class="meta-key">Statut</span>
-            <span class="meta-val">Disponible</span>
-          </div>
+    </nav>
+
+    <!-- HERO -->
+    <main class="page active" id="home">
+        <div class="home-hero">
+
+            <!-- LEFT — dark editorial panel -->
+            <div class="hero-editorial">
+                <div class="hero-overline reveal">Portfolio</div>
+                <h1 class="hero-name reveal">
+                    Toky<br>
+                    <span class="italic">Andrian</span>jafy
+                </h1>
+                <div class="hero-rule reveal"></div>
+                <div class="hero-tagline reveal">Full Stack Developer</div>
+
+            </div>
+
+            <!-- RIGHT — content -->
+            <div class="hero-content">
+                <p class="hero-intro reveal">
+                    Développeur passionné par les technologies web modernes, diplômé en Développement d'Applications Web
+                    et actuellement en <em>MBA Full Stack</em> à MyDigitalSchool.
+                </p>
+
+                <div class="hero-meta reveal">
+                    <div class="meta-row">
+                        <span class="meta-key">Localisation</span>
+                        <span class="meta-val">Angers, France</span>
+                    </div>
+                    <div class="meta-row">
+                        <span class="meta-key">Statut</span>
+                        <span class="meta-val">Disponible</span>
+                    </div>
+                </div>
+
+                <div class="hero-btns reveal">
+                    <a href="./pages/experience.html" class="btn btn-dark" data-page="experience">Voir mon parcours</a>
+                    <a href="./pages/contact.html" class="btn btn-outline" data-page="contact">Me contacter</a>
+                </div>
+            </div>
+
         </div>
+    </main>
 
-        <div class="hero-btns reveal">
-          <a href="./pages/experience.html" class="btn btn-dark" data-page="experience">Voir mon parcours</a>
-          <a href="./pages/contact.html" class="btn btn-outline" data-page="contact">Me contacter</a>
-        </div>
-      </div>
+    <!-- FOOTER -->
+    <footer>
+        <span>© 2026</span>
+        <span class="ft-center">Toky Andrianjafy</span>
+        <span>Angers · France</span>
+    </footer>
 
-    </div>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <span>© 2026</span>
-    <span class="ft-center">Toky Andrianjafy</span>
-    <span>Angers · France</span>
-  </footer>
-
-  <script src="./assets/main.js"></script>
+    <script src="./assets/main.js"></script>
 </body>
+
 </html>
