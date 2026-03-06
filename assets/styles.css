@@ -81,23 +81,27 @@ nav {
   display: flex; gap: 36px; list-style: none;
   flex: 1; justify-content: flex-end;
 }
-/* Hamburger — hidden on desktop */
+/* ── HAMBURGER — CSS ONLY ── */
+.nav-toggle {
+  display: none; /* checkbox cachée */
+}
 .nav-hamburger {
   display: none;
   flex-direction: column; justify-content: center; align-items: center;
-  gap: 5px;
+  gap: 6px;
   width: 44px; height: 44px;
-  background: none; border: none;
   cursor: pointer; flex-shrink: 0;
 }
 .nav-hamburger span {
   display: block; width: 22px; height: 1.5px;
   background: var(--noir);
   transition: transform .28s ease, opacity .28s ease;
+  pointer-events: none;
 }
-.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-hamburger.open span:nth-child(2) { opacity: 0; }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+/* Checkbox before nav → nav contains label → use :has() */
+#nav-toggle:checked ~ nav .nav-hamburger span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+#nav-toggle:checked ~ nav .nav-hamburger span:nth-child(2) { opacity: 0; }
+#nav-toggle:checked ~ nav .nav-hamburger span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
 .nav-logo-main {
   font-family: 'Cormorant Garamond', serif;
@@ -125,7 +129,7 @@ nav a::after {
 nav a:hover, nav a.active { color: var(--noir); }
 nav a:hover::after, nav a.active::after { transform: scaleX(1); }
 
-/* Drawer */
+/* Drawer — affiché via checkbox */
 .nav-drawer {
   display: none;
   position: fixed; top: 70px; left: 0; right: 0; z-index: 490;
@@ -134,11 +138,7 @@ nav a:hover::after, nav a.active::after { transform: scaleX(1); }
   border-bottom: 1px solid var(--border-dark);
   padding: 20px 28px 28px;
   flex-direction: column;
-  opacity: 0; transform: translateY(-6px);
-  transition: opacity .25s ease, transform .25s ease;
-  pointer-events: none;
 }
-.nav-drawer.open { display: flex; opacity: 1; transform: translateY(0); pointer-events: auto; }
 .nav-drawer a {
   font-family: 'Jost', sans-serif;
   font-size: .75rem; font-weight: 400;
@@ -151,8 +151,6 @@ nav a:hover::after, nav a.active::after { transform: scaleX(1); }
 }
 .nav-drawer a:last-child { border-bottom: none; }
 .nav-drawer a:hover, .nav-drawer a.active { color: var(--noir); padding-left: 8px; }
-
-
 
 /* PAGES */
 .page {
@@ -420,6 +418,8 @@ footer {
   .nav-right { display: none; }
   .nav-logo  { flex: 1; padding: 0; text-align: left; }
   .nav-hamburger { display: flex; }
+  /* Drawer visible quand checkbox cochée */
+  #nav-toggle:checked ~ .nav-drawer { display: flex; }
 
   footer { padding: 0 20px; }
   .ft-center { display: none; }
@@ -474,4 +474,41 @@ footer {
   .pg-wrap { padding: 36px 16px 64px; }
   h1.hero-name { font-size: 2.4rem; }
   .nav-logo-main { font-size: .9rem; letter-spacing: 2px; }
+}
+
+/* ── LANG SWITCHER ───────────────────────────────── */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-right: 16px;
+  border: 1px solid var(--border-dark);
+  padding: 3px;
+}
+.lang-btn {
+  font-family: 'Jost', sans-serif;
+  font-size: .5rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gris);
+  background: none;
+  border: none;
+  padding: 5px 8px;
+  cursor: pointer;
+  transition: color .2s, background .2s;
+  line-height: 1;
+}
+.lang-btn:hover { color: var(--noir); }
+.lang-btn.active {
+  background: var(--noir);
+  color: var(--ivoire);
+}
+@media (max-width: 960px) {
+  .lang-switcher { margin-right: 12px; }
+  .lang-btn { padding: 4px 6px; font-size: .45rem; }
+}
+@media (max-width: 600px) {
+  .lang-switcher { gap: 1px; padding: 2px; margin-right: 8px; }
+  .lang-btn { padding: 3px 5px; }
 }
