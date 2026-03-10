@@ -43,6 +43,20 @@
       font-style: italic;
       color: var(--or2);
     }
+    .tl-company-logo {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+    }
+    .tl-company-logo img {
+      filter: grayscale(0.3);
+      opacity: 0.85;
+      transition: filter 0.3s, opacity 0.3s;
+    }
+    .tl-entry:hover .tl-company-logo img {
+      filter: grayscale(0);
+      opacity: 1;
+    }
   </style>
 </head>
 <body data-page="experience">
@@ -88,6 +102,9 @@
             <div class="tl-period reveal" data-i18n="exp.1.per">Sept. 2025<br>→ Aujourd'hui</div>
           </div>
           <div>
+            <div class="tl-company-logo reveal">
+              <img src="../images/enedis.png" alt="ENEDIS" style="height: 32px; width: auto; object-fit: contain;" />
+            </div>
             <div class="tl-role reveal" data-i18n="exp.1.role">Platform <em>Engineer</em></div>
             <div class="tl-company reveal" data-i18n="exp.1.co">ENEDIS · Developer Experience &amp; Internal Tools · Courbevoie (92400)</div>
             <ul class="tl-tasks">
@@ -103,6 +120,9 @@
             <div class="tl-period reveal" data-i18n="exp.2.per">Avr. 2025<br>→ Juil. 2025</div>
           </div>
           <div>
+            <div class="tl-company-logo reveal">
+              <img src="../images/enedis.png" alt="ENEDIS" style="height: 32px; width: auto; object-fit: contain;" />
+            </div>
             <div class="tl-role reveal" data-i18n="exp.2.role">AngularJS <em>Developer</em></div>
             <div class="tl-company reveal" data-i18n="exp.2.co">ENEDIS · Stage · Courbevoie (92400)</div>
             <ul class="tl-tasks">
