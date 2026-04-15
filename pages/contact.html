@@ -4,6 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Toky Andrianjafy</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Contactez Toky Andrianjafy, développeur Full Stack disponible pour alternance, stage ou poste. Basé à Angers, France. Email, téléphone, LinkedIn." />
+  <meta name="author" content="Toky Andrianjafy" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://toky-andrianjafy.fr/pages/contact.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://toky-andrianjafy.fr/pages/contact.html" />
+  <meta property="og:title" content="Contact — Toky Andrianjafy" />
+  <meta property="og:description" content="Développeur Full Stack disponible pour alternance, stage ou poste. Basé à Angers, France." />
+  <meta property="og:image" content="https://toky-andrianjafy.fr/images/og.png" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact — Toky Andrianjafy" />
+  <meta name="twitter:description" content="Développeur Full Stack disponible pour alternance, stage ou poste. Basé à Angers, France." />
+  <meta name="twitter:image" content="https://toky-andrianjafy.fr/images/og.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="alternate icon" href="../favicon.ico" />
+
   <link rel="stylesheet" href="../assets/styles.css" />
 </head>
 <body data-page="contact">
@@ -22,6 +47,7 @@
     </div>
     <ul class="nav-right">
       <li><a href="../pages/experience.html" data-page="experience" data-i18n="nav.experience">Expérience</a></li>
+      <li><a href="../pages/projects.html" data-page="projects" data-i18n="nav.projects">Projets</a></li>
       <li><a href="../pages/education.html" data-page="education" data-i18n="nav.education">Formation</a></li>
       <li><a href="../pages/contact.html" data-page="contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
@@ -33,6 +59,7 @@
     <a href="../index.html" data-page="home" data-i18n="nav.home">Accueil</a>
     <a href="../pages/about.html" data-page="about" data-i18n="nav.about">Profil</a>
     <a href="../pages/experience.html" data-page="experience" data-i18n="nav.experience">Expérience</a>
+    <a href="../pages/projects.html" data-page="projects" data-i18n="nav.projects">Projets</a>
     <a href="../pages/education.html" data-page="education" data-i18n="nav.education">Formation</a>
     <a href="../pages/contact.html" data-page="contact" data-i18n="nav.contact">Contact</a>
   </div>
@@ -90,6 +117,40 @@
         </div>
       </div>
     </div>
+
+    <div class="pg-wrap" style="padding-top:0">
+      <div class="divider"></div>
+      <form
+        id="contact-form"
+        class="contact-form"
+        data-msg-ok="Message envoyé — je vous répondrai rapidement !"
+        data-msg-err="Une erreur est survenue, réessayez."
+        novalidate
+      >
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="from_name" data-i18n="form.name">Nom</label>
+            <input class="form-input" type="text" id="from_name" name="from_name" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reply_to" data-i18n="form.email">Email</label>
+            <input class="form-input" type="email" id="reply_to" name="reply_to" required autocomplete="email" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="subject" data-i18n="form.subject">Sujet</label>
+          <input class="form-input" type="text" id="subject" name="subject" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message" data-i18n="form.message">Message</label>
+          <textarea class="form-input form-textarea" id="message" name="message" required rows="5"></textarea>
+        </div>
+        <div class="form-footer">
+          <div id="form-feedback" class="form-feedback"></div>
+          <button type="submit" class="btn btn-dark form-submit" data-i18n="form.send">Envoyer</button>
+        </div>
+      </form>
+    </div>
   </main>
 
   <footer>
@@ -97,6 +158,10 @@
     <span class="ft-center">Toky Andrianjafy</span>
     <span data-i18n="footer.loc">Angers · France</span>
   </footer>
+  <!-- EmailJS SDK — remplace YOUR_PUBLIC_KEY par ta clé publique -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init({ publicKey: 'L4-1yFVye9ZGxhBHk' });</script>
+
   <script src="../assets/i18n.js"></script>
   <script src="../assets/main.js"></script>
 </body>
