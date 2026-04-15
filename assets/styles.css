@@ -654,6 +654,8 @@ h1.hero-name .italic { font-style: italic; color: var(--accent-gold); }
   color: var(--text-dark);
 }
 .langs-aside { padding-top: 12px; }
+.langs-section { padding-bottom: 60px; }
+.langs-list { max-width: 540px; }
 .lang-entry { padding: 28px 0; border-bottom: 1px solid var(--accent-gold); }
 .lang-top {
   display: flex;
