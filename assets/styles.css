@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Barlow+Condensed:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --black:       #000000;
-  --bg:          #0a0a0a;
-  --surface:     #111111;
-  --surface-2:   #1a1a1a;
-  --border:      rgba(255,255,255,0.10);
-  --border-hi:   rgba(255,255,255,0.22);
+  --black:       #141416;
+  --bg:          #1a1a1e;
+  --surface:     #222228;
+  --surface-2:   #2a2a32;
+  --border:      rgba(255,255,255,0.12);
+  --border-hi:   rgba(255,255,255,0.26);
   --white:       #ffffff;
-  --grey-1:      #cccccc;
-  --grey-2:      #888888;
-  --grey-3:      #444444;
-  --grey-4:      #222222;
+  --grey-1:      #d8d8d8;
+  --grey-2:      #a0a0a0;
+  --grey-3:      #606060;
+  --grey-4:      #383840;
   --shadow:      0 8px 40px rgba(0,0,0,0.6);
 }
 
@@ -23,25 +23,11 @@ body {
   font-family: 'Barlow', sans-serif;
   font-weight: 400;
   overflow-x: hidden;
-  cursor: none;
   -webkit-font-smoothing: antialiased;
 }
 
 /* CURSOR */
-#cursor {
-  position: fixed; z-index: 9999; pointer-events: none;
-  width: 6px; height: 6px; background: var(--white);
-  border-radius: 50%; transform: translate(-50%,-50%);
-  transition: all .1s ease;
-}
-#cursor-circle {
-  position: fixed; z-index: 9998; pointer-events: none;
-  width: 28px; height: 28px;
-  border: 1px solid rgba(255,255,255,0.4);
-  border-radius: 50%;
-  transform: translate(-50%,-50%);
-  transition: all .07s ease;
-}
+#cursor, #cursor-circle { display: none; }
 
 /* CURTAIN */
 #curtain {
@@ -61,7 +47,7 @@ nav {
   height: 64px;
   display: flex; align-items: center;
   padding: 0 48px;
-  background: rgba(0,0,0,0.72);
+  background: rgba(20,20,22,0.88);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
@@ -115,7 +101,7 @@ nav a:hover::after, nav a.active::after { transform: scaleX(1); }
 .nav-drawer {
   display: none;
   position: fixed; top: 64px; left: 0; right: 0; z-index: 490;
-  background: rgba(0,0,0,0.97);
+  background: rgba(20,20,22,0.97);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   padding: 20px 28px 32px;
@@ -176,7 +162,7 @@ nav a:hover::after, nav a.active::after { transform: scaleX(1); }
   font-size: 0.68rem; font-weight: 600;
   letter-spacing: 2px; text-transform: uppercase;
   padding: 14px 40px; text-decoration: none;
-  border: 1px solid; cursor: none; transition: all .22s;
+  border: 1px solid; transition: all .22s;
   display: inline-block;
 }
 .btn-dark {
@@ -249,7 +235,7 @@ h1.hero-name .italic {
   padding: 0 48px 80px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   background: var(--surface);
   position: relative;
 }
@@ -362,10 +348,9 @@ h1.hero-name .italic {
 }
 .tl-company-logo { margin-bottom: 20px; display: flex; align-items: center; }
 .tl-company-logo img {
-  filter: brightness(0) invert(1); opacity: 0.4;
-  max-height: 28px; transition: opacity .3s;
+  max-height: 38px; opacity: 0.85; transition: opacity .3s;
 }
-.tl-entry:hover .tl-company-logo img { opacity: 0.75; }
+.tl-entry:hover .tl-company-logo img { opacity: 1; }
 .tl-role {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 2rem; font-weight: 700;
@@ -410,14 +395,13 @@ h1.hero-name .italic {
   letter-spacing: 1.5px; text-transform: uppercase;
   color: var(--grey-2); padding-top: 4px;
 }
-.edu-logo { display: flex; align-items: center; margin-bottom: 14px; height: 28px; }
+.edu-logo { display: flex; align-items: center; margin-bottom: 14px; height: 68px; }
 .edu-logo img {
-  height: 100%; width: auto; max-width: 160px;
+  height: 100%; width: auto; max-width: 260px;
   object-fit: contain; object-position: left center;
-  filter: brightness(0) invert(1); opacity: 0.35;
-  transition: opacity .3s;
+  opacity: 0.85; transition: opacity .3s;
 }
-.edu-entry:hover .edu-logo img { opacity: 0.7; }
+.edu-entry:hover .edu-logo img { opacity: 1; }
 .edu-deg {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 1.55rem; font-weight: 600;
@@ -571,7 +555,7 @@ footer {
   height: 40px;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 48px;
-  background: rgba(0,0,0,0.88);
+  background: rgba(20,20,22,0.92);
   backdrop-filter: blur(16px);
   border-top: 1px solid var(--border);
   font-family: 'Barlow', sans-serif;
@@ -643,7 +627,7 @@ body.dark-mode {
   display: flex; align-items: center; gap: 0;
   border: 1px solid var(--border);
   border-top: none;
-  background: rgba(0,0,0,0.88);
+  background: rgba(20,20,22,0.92);
   backdrop-filter: blur(16px);
 }
 .lang-btn {
