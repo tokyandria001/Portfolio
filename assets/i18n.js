@@ -226,8 +226,7 @@ const TRANSLATIONS = {
       });
       sw.appendChild(btn);
     });
-    var hamburger = nav.querySelector('.nav-hamburger');
-    hamburger ? nav.insertBefore(sw, hamburger) : nav.appendChild(sw);
+    document.body.appendChild(sw);
   }
 
   document.addEventListener('DOMContentLoaded', function() {
