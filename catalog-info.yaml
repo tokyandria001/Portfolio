@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Portfolio
+  description: Portfolio (HTML)
+  annotations:
+    github.com/project-slug: tokyandria001/Portfolio
+  tags:
+    - html
+spec:
+  type: website
+  lifecycle: experimental
+  owner: guests
